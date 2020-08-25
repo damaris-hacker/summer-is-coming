@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import { Container } from 'react-bootstrap';
+
 
 
 
@@ -25,6 +27,7 @@ class Weather extends Component {
 
 
         return (
+            <Container>
             <div>
 
             <h1>Good Morning</h1>
@@ -36,6 +39,7 @@ class Weather extends Component {
 
         }
             </div>
+            </Container>
         )
     }
 }

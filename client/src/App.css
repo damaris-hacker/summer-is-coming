@@ -1,3 +1,10 @@
+/* #F65858  - red color */
+/* #008294 - türkis */
+/* #757575 - dunkelgrau */
+/* #dadce0 - hellgrau */
+
+/* font-family: 'Graphik Meetup',-apple-system,BlinkMacSystemFont,Roboto,Helvetica,Arial,sans-serif; */
+
 .App {
   text-align: center;
 }
@@ -56,24 +63,31 @@
 .activity-card img {
   max-width: 100%;
   display: block;
-  height: 200px;
+  height: 150px;
   width: 300px;
-  border-radius: 10px;
   object-fit: cover;
 }
 
 
 .activity-card {
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .1);
   background-color: #fff;
   position: relative;
-  height: 350px;
+  height: 300px;
   margin-bottom: 10px;
   border-radius: 10px;
-  padding: 15px 20px;
   overflow: hidden;
+  border: 1px solid #dadce0;
 }
 
+.activity-padding {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.activitiy-txt {
+  color: #757575;
+  font-size: 13px;
+}
 
 .img-div {
   padding: 0px;
@@ -86,18 +100,19 @@
 
 
 #interest-tag {
-  background-color: #905949;
+  background-color: #757575;
   color: white;
+  border: 1px solid #757575;
   display: inline-block;
   text-transform: uppercase;
   margin: 0px;
-  letter-spacing: 1px;
   line-height: 1;
-  padding: 5px;
-  font-size: 8px;
-  height: 15px;
+  padding: 3px 10px;
+  font-size: 10px;
+  font-style: bold;
   margin-bottom: 2px;
   margin-right: 5px;
+  border-radius:3px;
 }
 
 
@@ -115,28 +130,28 @@
   padding-left: 10px;
 }
 
-#google-btn {
-  background-color: white;
-  border-radius: 10px;
-  margin-top: 20px;
-  margin-bottom: 20px;
-
-}
 
 .noHover {
   pointer-events: none;
 }
 
 #discovery-page {
-  margin: 50px 0px;
-  background-color: white;
-  /* background-image: url("https://cdn.pixabay.com/photo/2016/05/05/02/37/sunset-1373171_960_720.jpg"); */
-  border-radius: 10px;
-
-  padding: 15px;
+  margin: 30px 0px;
+  background-color: #dadce0;
+  border-radius: 5px;
+  padding-top: 10px;
+  padding-bottom: 5px;
   text-align: center;
+  width: 80%;
+  margin-left: 10%;
 
 }
+
+.discovery-txt {
+  text-transform: uppercase;
+  color:#008294;
+}
+
 
 #activity-hello {
   margin-top: 15px;
@@ -291,3 +306,75 @@ header .overlay {
   color:white;
   border-style: none
 }
+
+.signup-btn {
+  width: 80%;
+margin-left:10%;
+background-color: #F65858;
+border-radius: 5px;
+color:white;
+border-style: none;
+padding-top: 10px;
+padding-bottom: 10px;
+}
+
+.google-btn {
+  width: 80%;
+  margin-left:10%;
+  background-color: white;
+  border-radius: 5px;
+  color: #008294;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #008294;
+}
+
+.headline-form{
+  margin-bottom:3px;
+}
+
+#password-txt {
+  margin-top: -0.5rem;
+}
+
+.login-btn {
+  width: 80%;
+  margin-top:10px;
+margin-left:10%;
+background-color: #F65858;
+border-radius: 5px;
+color:white;
+border-style: none;
+padding-top: 10px;
+padding-bottom: 10px;
+}
+
+.filter-body {
+  border: 1px solid #dadce0;
+  border-radius: 5px;
+  padding: 10px;
+
+}
+
+.box-white {
+  border: 1px solid #dadce0;
+  border-radius: 5px;
+  align-items: center;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.add-activity-btn {
+  width: 50%;
+  margin-left: 20%;
+  margin-top:20px;
+background-color: #F65858;
+border-radius: 5px;
+color:white;
+border-style: none;
+padding-top: 10px;
+padding-bottom: 10px;
+}
+

@@ -42,30 +42,28 @@ class Login extends Component {
 
               {this.state.redirect ? <Redirect to="/activities" /> : null}
 
-              {/* new bootstrap form */}
-              <h3>Welcome Back</h3>
+              <h2>Welcome Back</h2>
               <p>Sign in to stay updated on the latest activities.</p>
-              <Form onSubmit={this.handleFormSubmit}>
+              <Form onSubmit={this.handleFormSubmit} className="mt-3">
                 <Form.Group controlId="formBasicUsername">
-                  <Form.Label>Username</Form.Label>
+                  <Form.Label className="headline-form">Username</Form.Label>
                   <Form.Control type="text" name="username" value={this.state.username} onChange={e => this.handleChange(e)} placeholder="Enter username" />
 
                 </Form.Group>
 
                 <Form.Group controlId="formBasicPassword">
-                  <Form.Label>Password</Form.Label>
+                  <Form.Label className="headline-form">Password</Form.Label>
                   <Form.Control type="password" name="password" value={this.state.password} onChange={e => this.handleChange(e)} placeholder="Password" />
                 </Form.Group>
 
-                <Button variant="primary" value="Login" type="submit">
+                <button variant="primary" value="Login" type="submit" className="login-btn">
                   Login
-  </Button>
+            </button>
 
               </Form>
 
-              {/* <a href="http://localhost:5555/api/google">Login with Google</a> */}
               <a href={process.env.REACT_APP_BACKEND_URL + "/api/google"}>
-                <button id="google-btn" className="btn noHover">
+                <button className="google-btn">
                   <img alt="google-logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/1004px-Google_%22G%22_Logo.svg.png" height="18"></img>
                   <span id="google-signup-txt">
                     Login with Google</span>

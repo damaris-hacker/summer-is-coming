@@ -4,6 +4,8 @@ import axios from 'axios';
 import { Image, Button } from 'react-bootstrap'
 import Slider from './Slider';
 import { Link, Redirect } from 'react-router-dom';
+import { Container } from 'react-bootstrap';
+
 
 
 
@@ -22,22 +24,13 @@ class Home extends React.Component {
     render() {
         return (
 
-
-            // <div className="h-100" width="100%">
-
-
-                // <div className="overlay"></div>
-
-                // <div className="h-100">
-                    // <div className="h-100 text-center align-items-center">
-
-                        <div id="main-content">
-                        <div id="hero-section">
+            <Container fluid>
 
 
+                <div id="main-content">
+                <div id="hero-section">
 
-
-                        <header>
+                <header>
                     <div class="overlay"></div>
                     <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
                         <source src="https://www.meetup.com/mu_static/de-DE/video.dddafbfe.mp4" type="video/mp4"/>
@@ -53,7 +46,7 @@ class Home extends React.Component {
                         </div>
                         </div>
                     </div>
-                    </header>
+                </header>
 
                 <section class="my-5">
                 <div class="container">
@@ -70,32 +63,17 @@ class Home extends React.Component {
 
 
                         
-                        {/* <Image src="https://github.com/pgmdf/summer-is-coming/blob/master/client/public/z-logo-final.png?raw=true" /> */}
-                            
-                            {/* <h1 className="display-3">The real world is 
-                            calling</h1>
-                            <div className="col-md-9 mx-auto">
-                                <h3>Sometimes you don't have to go far to find the really important things in life.</h3><br />
-                            </div></div>
+                        
+                </div>
+                </div>
 
-                            <div className="lead mb-0">{this.props.userInSession ? "Hello " + this.props.userInSession.username + "! What do you want to do today?" :
-                            <p className="lead mb-0">Join our community to try something new! Or do more of what you love ... <br /><a href="/signup"><Button>Join us</Button></a> <br/><br/> <p>Already a part of the community? Go and explore! <br />
-                                <a href="/login"><Button>Log in</Button></a></p></p>}</div> */}
-                        </div>
-                    </div>
-                // </div>
-
-
-                
-
+                </Container>
 
                 // {/* {this.state.sortedActivities ? <Slider sliderData={this.state.sortedActivities} /> : ""} */}
 
 
-
-
-            // {/* </div> */}
         );
+
     }
 
 }

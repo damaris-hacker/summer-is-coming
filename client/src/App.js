@@ -53,17 +53,7 @@ class App extends Component {
         
         <Switch>
 
-        <Container fluid>
-
           <Route exact path="/" render={() => <Home userInSession={this.state.loggedInUser} updateUser={this.updateTheUser} />} />
-
-        </Container>
-
-        
-        <Container>
-
-            
-            {/* <Route exact path="/signup" component={Signup} /> */}
             <Route exact path="/activities" render={() => <Activities updateUser={this.updateTheUser} loggedInUser={this.state.loggedInUser} />} />
             <Route exact path="/activities/discovery" render={() => <ActivityDiscovery updateUser={this.updateTheUser} loggedInUser={this.state.loggedInUser} />} />
             <Route exact path="/activities/add" render={() => <ActivityAdd addActivityCallback={this.addActivityHandler}></ActivityAdd>} />
@@ -73,9 +63,7 @@ class App extends Component {
             <Route exact path='/signup' render={() => <Signup updateUser={this.updateTheUser} />} />
             <Route exact path='/login' render={() => <Login updateUser={this.updateTheUser} />} />
             <Route exact path='/weather' render={() => <Weather/>} />
-
             <Route exact path='/contact' render={() => <Contact/>} />
-            {/* <Route exact path="/userprofile" render={() => <Userprofile userInSession={this.state.loggedInUser} updateUser={this.updateTheUser} />} /> */}
             <Route exact path="/user/:userID" render={(props) => {
               if (this.state.loggedInUser) {
                 return <Userprofile userID={props.match.params.userID} userInSession={this.state.loggedInUser} />
@@ -88,9 +76,7 @@ class App extends Component {
             <Route exact path="/editprofile" render={() => <Editprofile userInSession={this.state.loggedInUser} updateUser={this.updateTheUser} />} />
             <Route path="/dummy" component={Dummy} />
             <Route exact path="/slider" component={Slider}/>
-          
-          </Container>
-          </Switch>
+        </Switch>
       </div>
     )
   }

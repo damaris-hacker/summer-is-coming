@@ -43,6 +43,8 @@ class Navigation extends React.Component {
 
                             {this.props.user ? <Nav.Link href="/activities/add">Add a new activity</Nav.Link> : ""}
 
+                            {this.props.user ? <Nav.Link href="/activities/discovery">Discovery!</Nav.Link> : ""}
+
                             {/* <Nav.Link href="/activities/add">Add a new activity</Nav.Link> */}
 
 

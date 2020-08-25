@@ -52,16 +52,17 @@ componentDidMount() {
 
 
         return (
+            <Container>
             <div>
-                <h1>Extraordinary things to do</h1>
-                <h3>Try something new today</h3>
+                <h1>Try something new today</h1>
+                <h2>Extraordinary activities, not matching your interests</h2>
                 {/* <HorizontalCards inputArray={discoveryArr}/> */}
                 <Container>
-                <Row>
+                <Row className="no-gutters">
                 {discoveryArr.map(activity => {
                 return (
-                    <Col xs={12} sm={6} md={6} lg={4}>
-                <div>
+                    <Col xs={12} sm={6} md={6} lg={3}>
+                <div className="activity-padding">
                 <Link to={"/activities/" + activity._id} >
 
                 <div className="activity-card">
@@ -95,6 +96,7 @@ componentDidMount() {
                 </Row>
                 </Container>
             </div>
+            </Container>
         )
     }
 }
