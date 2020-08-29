@@ -4,7 +4,7 @@ import '../../App.css';
 import '../../Style.css'
 import interests from '../../configs/interests';
 import { Redirect, Link } from 'react-router-dom';
-import { Card, Image, Nav, Button, Col, Form } from 'react-bootstrap';
+import { Container, Card, Image, Nav, Button, Col, Form } from 'react-bootstrap';
 
 
 
@@ -112,15 +112,14 @@ class Editprofile extends Component {
     /* console.log('Userdata',this.userInSession) */
 
     return (
-
+      <Container>
       <div>
         {this.state.redirect ? <Redirect to={`/user/${this.props.userInSession._id}`}></Redirect> : ""}
 
 
-        <Card border="dark" className="box-white">
-          <Card.Header className="back-grey full-width flex-row text-left">
-            <div className="flex-row">
-              <div id="profileimage">
+        <Card>
+            <div className="edit-profile">
+              <div className="profileimage">
                 <Image src={this.state.profilePicUrl} alt="profile pic" thumbnail />
                 <input
                   type="file"
@@ -129,13 +128,13 @@ class Editprofile extends Component {
               </div>
               <div>
                 <div className="margin10">
-                  <Card.Title> <h3 className="text-bright">Edit Profile</h3> </Card.Title>
+                  <Card.Title> <h3>Edit your profile</h3> </Card.Title>
                   <div>
-                    <div className="bold-head text-bright">Username (visible):</div> <input id="username" type="text" name="username" value={this.state.username} onChange={e => this.handleChange(e)} />
+                    <div className="inline">Username:</div> <input id="username" type="text" name="username" value={this.state.username} onChange={e => this.handleChange(e)} />
                     <br />
                   </div>
                 </div>
-                <div className="bold-head text-bright">Choose your Interests:</div>
+                <div className="inline">Choose your interests:</div>
                 <Col>
                   <Form.Group controlId="tags" className="interests">
 
@@ -158,22 +157,24 @@ class Editprofile extends Component {
                     </ul>
                   </div> */}
                 </Col>
-                <Button onClick={this.submitHandler}>Save</Button>  <br />
-                <a href={"/user/" + this.props.userInSession._id}> Back to my Profil without saving </a>
+              
+                
 
               </div>
+             
+              <button className="edit-btn" onClick={this.submitHandler}>Save</button>  <br />
             </div>
-
-          </Card.Header>
+            
+       
 
         </Card>
-
+        <a href={"/user/" + this.props.userInSession._id}> back to my profile without saving </a>
 
 
 
       </div>
 
-
+</Container>
     )
   }
 

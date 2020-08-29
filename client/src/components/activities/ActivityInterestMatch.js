@@ -83,7 +83,7 @@ export class ActivityInterestMatch extends Component {
                                                 <h5>{interest.title}</h5>
 
                                                 {/* <p>{interest.description}</p> */}
-                                                <p>{interest.location}</p>
+                                                <p className="activitiy-txt">{interest.location}</p>
                                             </div>
                                         </div>
                                     </Link>

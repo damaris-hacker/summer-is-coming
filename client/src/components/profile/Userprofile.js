@@ -64,6 +64,7 @@ class Userprofile extends Component {
       return <div>Loading…</div>
     }
     return (
+      
       <Container> 
       <div>
         {this.props.userID !== this.props.userInSession._id ? "" : <Nav.Link href="/editprofile"> Edit my profile </Nav.Link>}
@@ -75,18 +76,21 @@ class Userprofile extends Component {
         {/* {this.state.errorMessage ? <h1>{this.state.errorMessage}</h1> : null} */}
 
         <Card>
-          <Card.Header className="full-width flex-row text-left">
-            <div id="profileimage">
+
+        <div className="profile">
+
+            <div className="profileimage">
               <Image src={this.state.user.profilePicUrl} alt="profile-pic" thumbnail fluid />
             </div>
-            <div className="margin10">
-              <Card.Title> <h3 className="text-bright">{this.state.user.username}'s Profile</h3> </Card.Title>
+
+            <div className="profile-info">
+              <Card.Title> <h3>{this.state.user.username}'s Profile</h3> </Card.Title>
               <div>
-                <div className="bold-head text-bright">Name:</div> {this.state.user.username} <br />
+                <div className="inline">Name:</div> {this.state.user.username} <br />
                 {/* Living in: <br /> */}
-                <div className="bold-head text-bright">Member since:</div> {this.state.user.created.split('T')[0]} <br />
+                <div className="inline">Member since:</div> {this.state.user.created.split('T')[0]} <br />
                 {/* find out how to show the date in pretty with .timeStamp */}
-                <div className="bold-head text-bright">My Interests:</div>
+                <div>My Interests:</div>
                 <ul>
                   {this.state.user.myInterests.length > 0 ? this.state.user.myInterests.map((i, key) => <li key={key} className="inline">{i} / </li>) : "Sorry, I'm not interested :("}
                   {/* {JSON.stringify(this.state.user.myFavoriteActivities, null, 2)} */}
@@ -98,23 +102,22 @@ class Userprofile extends Component {
 
               </div>
             </div>
-          </Card.Header>
-
-          <Card.Body className="margin0 padding0 center">
-            <div>
-
-            </div>
-
-          </Card.Body>
+          </div>
         </Card>
 
+
+
         <br />
-        <Card >
+        <Card>
 
-          <Card.Title id="lists" className="text-center"><h3>My Favourite Activities</h3></Card.Title>
+        <div className="favouriteActivities">
 
-          <Col xs={12} sm={6} md={6} lg={4}>
-            <div>
+          <Card.Title id="lists" className="text-center"><h3>My favourite activities:</h3></Card.Title>
+          <Container>
+
+         <Row className="no-gutters">
+          <Col xs={12} sm={6} md={6} lg={3}>
+            <div className="activity-padding">
               {this.state.user.myFavoriteActivities.length > 0 ? this.state.user.myFavoriteActivities.map((fav, key) =>
                 <Link to={"/activities/" + fav._id} key={fav._id} className="border-bottom">
                   <div className="activity-card">
@@ -130,12 +133,15 @@ class Userprofile extends Component {
                           )
                         })}
                       </div>
-                      <p>{fav.location}</p>
+                      <p className="activitiy-txt">{fav.location}</p>
                     </div>
                   </div><br />
-                </Link>) : <div className="text-center margin0">I've no Favourite Activities yet.</div>}
+                </Link>) : <div className="text-center margin0">I've no favourite activities yet.</div>}
             </div>
           </Col>
+          </Row>
+</Container>
+          </div>
         </Card>
         <br />
 
@@ -143,10 +149,10 @@ class Userprofile extends Component {
 
         <Card>
           
-
+        <div className="bucket-list">
             <Card.Title id="lists" className="text-center"><h3>My Bucket List</h3></Card.Title>
 
-            <Col xs={12} sm={6} md={6} lg={4}>
+            <Col xs={12} sm={6} md={6} lg={3}>
 
               <div>
               
@@ -166,7 +172,7 @@ class Userprofile extends Component {
                             )
                           })}
                         </div>
-                        <p>{b.location}</p>
+                        <p className="activitiy-txt">{b.location}</p>
                         {/* Favs und bucket list icons HERE to add and remove direct */}
                         {/*                       <div>{this.props.loggedInUser ?
                         <p>{this.state.myBucketlistArr.includes(this.state.activity._id) ?
@@ -182,6 +188,7 @@ class Userprofile extends Component {
 
 
             </Col>
+            </div>
         </Card>
 
         <Col>

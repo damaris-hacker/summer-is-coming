@@ -84,7 +84,7 @@ componentDidMount() {
                 <h5>{activity.title}</h5>
 
                 {/* <p>{activity.description}</p> */}
-                <p>{activity.location}</p>
+                <p className="activitiy-txt">{activity.location}</p>
                 </div>
                 </div>
                 </Link>
