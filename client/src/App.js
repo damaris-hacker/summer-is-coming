@@ -23,7 +23,7 @@ import { Container } from 'react-bootstrap';
 import Slider from './components/Slider';
 import Weather from './components/Weather'
 
-// Hallo Magnus
+// Hallo Magnus & ich
 class App extends Component {
 
   state = {
