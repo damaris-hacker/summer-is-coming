@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios';
 import { Container, Row, Col} from 'react-bootstrap'
-import './../App.css';
+import '../../App.css';
 import { Link } from 'react-router-dom';
 
 
@@ -57,15 +57,15 @@ export class ActivityInterestMatch extends Component {
         return (
 
             <div>
-                <h3 id="activity-hello">Hello {this.state.userName}</h3>
-                <h3>Suggested activities according to your interests</h3>
+                {/* <h2>Hello {this.state.userName}</h2> */}
+                <h1>Suggested activities matching your interests, {this.state.userName} </h1>
 
                 <Container id="activity-interest-match-card">
-                                <Row>
+                                <Row className="no-gutters">
                         {interestsActivitiesArr.map(interest => {
                             return (
-                                <Col xs={12} sm={6} md={6} lg={4}>
-                                <div>
+                                <Col xs={12} sm={6} md={6} lg={3}>
+                                <div className="activity-padding">
                                     <Link to={"/activities/" + interest._id} key={interest._id}>
 
                                         <div className="activity-card">

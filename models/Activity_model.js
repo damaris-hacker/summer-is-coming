@@ -7,7 +7,9 @@ const activitySchema = new Schema({
   // tags: { type: Array, required: true},
   tags: [{ type: String, enum: interests, required:true }],
   description: String, 
-  pictureUrl: [ { type: String } ], 
+  pictureUrl: { type: String }, 
+
+  // pictureUrl: [ { type: String } ], 
   location: String, 
   rating: Number, 
   createdBy: { type: Schema.Types.ObjectId, ref: 'User' },

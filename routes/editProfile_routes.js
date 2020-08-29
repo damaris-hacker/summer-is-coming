@@ -3,16 +3,7 @@ const router = express.Router();
 // package to allow <input type="file"> in forms
 const User = require('../models/User_model')
 
-
-
 const uploader = require('../configs/cloudinary');
-
-// this route only stores into cloudinary
-// router.put('/api/image', uploader.single("imageUrl"), (req, res, next) => {
-//   console.log(req.user._id)
-//   // send over the cloudinary URL to React
-//   res.json({ image_url: req.file.path })
-// })
 
 
 //posts new profile pic in User

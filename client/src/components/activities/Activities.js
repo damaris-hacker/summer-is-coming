@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import './../App.css';
-import './../Style.css';
+import '../../App.css';
+import '../../Style.css';
 import 'bootstrap/dist/css/bootstrap.css';
-import { Row, Col, Button } from 'react-bootstrap';
+import { Container, Row, Col, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import ActivityAdd from './ActivityAdd';
 import ActivityInterestMatch from './ActivityInterestMatch'
-import interests from '../configs/interests';
+import interests from '../../configs/interests';
 
 
 class Activities extends Component {
@@ -18,8 +18,6 @@ class Activities extends Component {
     value: "",
     userInterestsArr: (this.props.loggedInUser === null) ? "" : this.props.loggedInUser.myInterests
   }
-
-
 
 
   handleChange = (event) => {
@@ -87,28 +85,29 @@ class Activities extends Component {
     }
 
     return (
+      
       <div>
-
+<Container>
         {(this.props.loggedInUser) ? <ActivityInterestMatch loggedInUser={this.props.loggedInUser} /> : ""}
 
 
         {(this.props.loggedInUser && this.state.userInterestsArr.length > 0) ? <div id="discovery-page">
           <a href="activities/discovery">
-            <h1>Try something new today</h1>
-            <p>Click here to get inspired!</p>
+            <h4 className="discovery-txt">Try something new today</h4>
+            <h4>Click here to get inspired.</h4>
           </a>
         </div> : ""
         }
 
 
-        <h1>Explore all activities </h1>
+        <h1>Find your next activity - Explore all activities </h1>
         {/* Filter */}
 
         <p>Filter down to your interests:</p>
-        <div className="filter-body">
+        <div>
           <form>
-            <label form="interests">
-              <select value={this.state.value} onChange={this.handleChange} id="interests" name="interests">
+            <label form="interests" >
+              <select className="filter-body" value={this.state.value} onChange={this.handleChange} id="interests" name="interests">
 
                 {this.addInterestAll(interests).map(i => (
                   <option value={i} key={i}>{i} </option>
@@ -119,25 +118,31 @@ class Activities extends Component {
           </form>
         </div>
 
-
+{/* 
         <Row>
 
           <Col>
             {(this.state.activityAddForm && this.props.loggedInUser) ? <ActivityAdd addActivityCallback={this.addActivityHandler}></ActivityAdd> : this.props.loggedInUser && <Button className="button mb-3" onClick={this.toggleForm}>Wanna add an activity?</Button>}
           </Col>
-        </Row>
+        </Row> */}
         <br />
-        <Row>
+        <Row className="no-gutters">
           {filteredArray.map(activity => {
             return (
-              <Col xs={12} sm={6} md={6} lg={4}>
+              <Col xs={12} sm={6} md={6} lg={3}>
 
-                <div>
+                <div className="activity-padding">
                   <Link to={"/activities/" + activity._id} key={activity._id}>
 
                     <div className="activity-card">
                       <div className="img-div"><img className="activity-img" src={activity.pictureUrl} alt={activity.name}></img></div>
+                      
+                      
                       <div className="text-div">
+
+                       
+
+                        <h5>{activity.title}</h5>
 
                         <div>
                           {activity.tags.map(tag => {
@@ -146,17 +151,14 @@ class Activities extends Component {
                             )
                           })}
                         </div>
-
-                        <h5>{activity.title}</h5>
-
                         {/* <p>{interest.description}</p> */}
-                        <p>{activity.location}</p>
+                        <p className="activitiy-txt">{activity.location}</p>
                       </div>
                     </div>
                   </Link>
 
                 </div>
-              </Col>
+                </Col>
             )
 
           })}
@@ -185,6 +187,7 @@ class Activities extends Component {
               <img src={imgUrl} alt="Draft activity like Homer"></img>
             }</Col>
         </Row> */}
+        </Container>
       </div>
     )
   }

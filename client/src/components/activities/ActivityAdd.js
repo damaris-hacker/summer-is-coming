@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import axios from "axios";
-import "./../App.css";
+import "../../App.css";
 import "bootstrap/dist/css/bootstrap.css";
-import { Form, Button } from "react-bootstrap";
-import interests from '../configs/interests';
+import { Container, Form, Button } from "react-bootstrap";
+import interests from '../../configs/interests';
 
 
 let spinnerHeight = "0px"
@@ -86,8 +86,10 @@ class ActivityAdd extends Component {
   render() {
 
     return (
-      <div className="box-white">
-        <h1>Add your favourite activity</h1>
+      <Container>
+      <div>
+      
+        <h1>Add a new activity</h1>
         <div>
         <Form onSubmit={this.formSubmitHandler}>
           <Form.Group controlId="title">
@@ -151,15 +153,17 @@ class ActivityAdd extends Component {
           <div>{this.state.uploadErrorMsg}</div>
           <img height={spinnerHeight} width="90px" src="https://icon-library.com/images/spinner-icon-gif/spinner-icon-gif-10.jpg" alt="animated gif showing loading process"></img>
           <div>{loadingText} </div>
-          <Button variant="primary" type="submit">
+          <button className="add-activity-btn" variant="primary" type="submit">
             Submit activity
-          </Button>
+          </button>
           
 
         </Form>
         </div>
         <br/>
+       
       </div>
+      </Container>
 
       
     );

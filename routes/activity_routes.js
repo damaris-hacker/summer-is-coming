@@ -25,7 +25,7 @@ router.post('/activities/add', (req, res, next) => {
     title: req.body.title,
     tags: req.body.tags,
     description: req.body.description,
-    pictureUrl: req.body.activityPicture ? req.body.activityPicture : "https://cdn.pixabay.com/photo/2014/04/02/11/00/runner-305189_960_720.png",
+    pictureUrl: req.body.activityPicture ? req.body.activityPicture : "https://cdn.pixabay.com/photo/2020/02/28/21/15/space-4888643_960_720.jpg",
     location: req.body.location,
     /* TODO: #rating finish in beta-version 
     rating: req.body.rating, */

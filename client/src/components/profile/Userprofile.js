@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Link } from 'react-router-dom';
-import "./../App.css";
+import "../../App.css";
 import 'bootstrap/dist/css/bootstrap.css';
-import { Card, Image, Nav, Col, Row } from 'react-bootstrap';
+import { Container, Card, Image, Nav, Col, Row } from 'react-bootstrap';
 import axios from "axios";
 /*import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar, faClipboard } from '@fortawesome/free-solid-svg-icons';
@@ -64,8 +64,9 @@ class Userprofile extends Component {
       return <div>Loading…</div>
     }
     return (
+      <Container> 
       <div>
-        {this.props.userID !== this.props.userInSession._id ? "" : <Nav.Link href="/editprofile"> edit my profile </Nav.Link>}
+        {this.props.userID !== this.props.userInSession._id ? "" : <Nav.Link href="/editprofile"> Edit my profile </Nav.Link>}
 
         {/*     Shows the Name of the current user
         {this.state.loading ? "" : this.state.user.username} */}
@@ -73,8 +74,8 @@ class Userprofile extends Component {
         {/* // ERROR MESSAGE IF USER IS NOT LOGGED IN // */}
         {/* {this.state.errorMessage ? <h1>{this.state.errorMessage}</h1> : null} */}
 
-        <Card border="dark" className="box-white">
-          <Card.Header className="back-grey full-width flex-row text-left">
+        <Card>
+          <Card.Header className="full-width flex-row text-left">
             <div id="profileimage">
               <Image src={this.state.user.profilePicUrl} alt="profile-pic" thumbnail fluid />
             </div>
@@ -108,9 +109,9 @@ class Userprofile extends Component {
         </Card>
 
         <br />
-        <Card border="dark" className="box-white">
+        <Card >
 
-          <Card.Title id="lists" className="text-center"><h3>My Favorite Activities</h3></Card.Title>
+          <Card.Title id="lists" className="text-center"><h3>My Favourite Activities</h3></Card.Title>
 
           <Col xs={12} sm={6} md={6} lg={4}>
             <div>
@@ -132,7 +133,7 @@ class Userprofile extends Component {
                       <p>{fav.location}</p>
                     </div>
                   </div><br />
-                </Link>) : <div className="text-center margin0">I've no Favorite Activities yet.</div>}
+                </Link>) : <div className="text-center margin0">I've no Favourite Activities yet.</div>}
             </div>
           </Col>
         </Card>
@@ -140,7 +141,7 @@ class Userprofile extends Component {
 
 
 
-        <Card border="dark" className="box-white">
+        <Card>
           
 
             <Card.Title id="lists" className="text-center"><h3>My Bucket List</h3></Card.Title>
@@ -184,10 +185,12 @@ class Userprofile extends Component {
         </Card>
 
         <Col>
-          <Link to="/activities">Go to all activities</Link>
+          <Link to="/activities">Go back to all activities</Link>
         </Col>
         <br />
+      
       </div>
+      </Container> 
     );
   }
 }
