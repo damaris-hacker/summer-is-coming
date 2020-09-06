@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 import ActivityAdd from './ActivityAdd';
 import ActivityInterestMatch from './ActivityInterestMatch'
 import interests from '../../configs/interests';
+import SearchBox from '../search-box/search-box';
 
 
 class Activities extends Component {
@@ -16,13 +17,23 @@ class Activities extends Component {
     activitiesArr: [],
     loading: true,
     value: "",
-    userInterestsArr: (this.props.loggedInUser === null) ? "" : this.props.loggedInUser.myInterests
+    userInterestsArr: (this.props.loggedInUser === null) ? "" : this.props.loggedInUser.myInterests,
+    searchField:""
   }
 
 
   handleChange = (event) => {
     this.setState({ value: event.target.value });
   }
+
+  handleSearchChange = e => {
+    this.setState({ searchField:e.target.value })
+  }
+
+  
+  
+
+
 
 
   componentDidMount() {
@@ -84,6 +95,14 @@ class Activities extends Component {
       console.log('filteredArray', filteredArray)
     }
 
+    const {searchField} = this.state
+     let searchFilterArr = filteredArray.filter(activity => 
+      activity.title.toLowerCase().includes(searchField.toLowerCase()))
+    
+  
+
+
+
     return (
       
       <div>
@@ -118,6 +137,11 @@ class Activities extends Component {
           </form>
         </div>
 
+        <SearchBox
+          placeholder='search activities' 
+          handleSearchChange={this.handleSearchChange}  
+        />
+
 {/* 
         <Row>
 
@@ -127,7 +151,7 @@ class Activities extends Component {
         </Row> */}
         <br />
         <Row className="no-gutters">
-          {filteredArray.map(activity => {
+          {searchFilterArr.map(activity => {
             return (
               <Col xs={12} sm={6} md={6} lg={3}>
 

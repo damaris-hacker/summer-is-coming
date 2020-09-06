@@ -21,7 +21,8 @@ import Contact from './components/contact';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import { Container } from 'react-bootstrap';
 import Slider from './components/Slider';
-import Weather from './components/Weather'
+import Weather from './components/Weather';
+
 
 // Hallo Magnus & ich
 class App extends Component {
